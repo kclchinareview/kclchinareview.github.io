@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Publications | KCL China Review</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #fefcf5;
+            color: #1e1e1e;
+            line-height: 1.5;
+        }
+
+        :root {
+            --kcl-red: #9b1b30;
+            --china-gold: #d4af37;
+            --gold-light: #f5e7b2;
+            --dark-bg: #2c2c2c;
+        }
+
+        h1, h2, h3 {
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        h2:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--china-gold);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        nav {
+            background: white;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 24px;
+            max-width: 1200px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.4rem;
+            color: var(--kcl-red);
+        }
+
+        .logo span {
+            color: var(--china-gold);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 500;
+            color: #333;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--kcl-red);
+        }
+
+        .page-header {
+            background: linear-gradient(135deg, var(--kcl-red) 0%, #6e1223 100%);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .page-header p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+            padding: 3rem 0;
+        }
+
+        .article-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .article-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+        }
+
+        .article-content {
+            padding: 1.5rem;
+        }
+
+        .article-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--kcl-red);
+            margin-bottom: 0.5rem;
+        }
+
+        .article-meta {
+            font-size: 0.85rem;
+            color: #888;
+            margin-bottom: 0.75rem;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .article-excerpt {
+            font-size: 0.9rem;
+            color: #555;
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+
+        .read-more {
+            display: inline-block;
+            color: var(--china-gold);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: color 0.2s;
+        }
+
+        .read-more:hover {
+            color: var(--kcl-red);
+        }
+
+        .back-home {
+            text-align: center;
+            margin: 2rem 0 3rem;
+        }
+
+        .back-home a {
+            display: inline-block;
+            background: var(--kcl-red);
+            color: white;
+            padding: 0.75rem 1.8rem;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background 0.2s;
+        }
+
+        .back-home a:hover {
+            background: #6e1223;
+        }
+
+        footer {
+            background: var(--dark-bg);
+            color: #ccc;
+            text-align: center;
+            padding: 2rem 0;
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: var(--china-gold);
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .nav-links {
+                gap: 1rem;
+                justify-content: center;
+            }
+            h1 {
+                font-size: 1.8rem;
+            }
+            .articles-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-container">
+        <div class="logo">KCL China <span>Review</span></div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#publication">Publication</a></li>
+            <li><a href="index.html#team">Team</a></li>
+            <li><a href="publications.html">Publications</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+    </div>
+</nav>
+
+<header class="page-header">
+    <div class="container">
+        <h1>KCL China Review</h1>
+        <p>Past publications from our student-run academic journal</p>
+    </div>
+</header>
+
+<div class="container">
+    <div class="articles-grid">
+        
+        <!-- Article 1 -->
+        <div class="article-card">
+            <div class="article-content">
+                <div class="article-title">China's Belt and Road Initiative: A New Era of Global Connectivity</div>
+                <div class="article-meta">
+                    <span>Issue 1, Autumn 2024</span>
+                    <span>By Emily Zhang</span>
+                </div>
+                <div class="article-excerpt">An analysis of the geopolitical and economic implications of China's flagship infrastructure project across Asia, Africa, and Europe.</div>
+                <a href="#" class="read-more">Read more →</a>
+            </div>
+        </div>
+
+        <!-- Article 2 -->
+        <div class="article-card">
+            <div class="article-content">
+                <div class="article-title">Digital Silk Road: Technology and Power in the 21st Century</div>
+                <div class="article-meta">
+                    <span>Issue 1, Autumn 2024</span>
+                    <span>By James Chen</span>
+                </div>
+                <div class="article-excerpt">Exploring how Chinese tech giants like Huawei and Alibaba are shaping global digital infrastructure and standards.</div>
+                <a href="#" class="read-more">Read more →</a>
+            </div>
+        </div>
+
+        <!-- Article 3 -->
+        <div class="article-card">
+            <div class="article-content">
+                <div class="article-title">Shanghai's Cultural Renaissance: From Colonial Past to Global Future</div>
+                <div class="article-meta">
+                    <span>Issue 1, Autumn 2024</span>
+                    <span>By Sophia Liu</span>
+                </div>
+                <div class="article-excerpt">A look at how Shanghai balances preserving its unique heritage with its ambitions as a world-class cultural hub.</div>
+                <a href="#" class="read-more">Read more →</a>
+            </div>
+        </div>
+
+        <!-- Article 4 -->
+        <div class="article-card">
+            <div class="article-content">
+                <div class="article-title">Climate Policy in China: Ambitions and Realities</div>
+                <div class="article-meta">
+                    <span>Issue 2, Spring 2025</span>
+                    <span>By Oliver Wang</span>
+                </div>
+                <div class="article-excerpt">Examining China's pledge to achieve carbon neutrality by 2060 and the challenges of implementation.</div>
+                <a href="#" class="read-more">Read more →</a>
+            </div>
+        </div>
+
+        <!-- Article 5 -->
+        <div class="article-card">
+            <div class="article-content">
+                <div class="article-title">Hong Kong's Evolving Identity: A Student Perspective</div>
+                <div class="article-meta">
+                    <span>Issue 2, Spring 2025</span>
+                    <span>By Michelle Tse</span>
+                </div>
+                <div class="article-excerpt">Voices from young Hongkongers navigating the city's changing political and cultural landscape.</div>
+                <a href="#" class="read-more">Read more →</a>
+            </div>
+        </div>
+
+        <!-- Article 6 -->
+        <div class="article-card">
+            <div class="article-content">
+                <div class="article-title">Chinese Cinema Goes Global: From Fifth Generation to Streaming Era</div>
+                <div class="article-meta">
+                    <span>Issue 2, Spring 2025</span>
+                    <span>By Liam O'Connor</span>
+                </div>
+                <div class="article-excerpt">Tracing the international rise of Chinese filmmakers from Zhang Yimou to contemporary streaming successes.</div>
+                <a href="#" class="read-more">Read more →</a>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="back-home">
+        <a href="index.html">← Back to Home</a>
+    </div>
+</div>
+
+<footer>
+    <div class="container">
+        <p>© 2025 KCL China Review | China Studies Society, King's College London</p>
+        <p style="margin-top: 0.5rem;"><a href="#">Back to top ↑</a></p>
+    </div>
+</footer>
+
+</body>
+</html>
